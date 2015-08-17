@@ -1,1 +1,0 @@
-Chayapol Moemeng <ID>
