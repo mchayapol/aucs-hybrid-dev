@@ -1,1 +1,0 @@
-Kornkamol Kiatopas 5615959
