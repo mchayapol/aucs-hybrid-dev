@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        
+    function start() {
+        document.getElementById('div_temp').style.display = 'none';
+        document.getElementById('div_dist').style.display = 'none';
+        document.getElementById('div_weight').style.display = 'none';
+    }
+        
+    function showTemp() {
+        document.getElementById('div_temp').style.display = 'block';
+        document.getElementById('div_dist').style.display = 'none';
+        document.getElementById('div_weight').style.display = 'none';
+    }
+        
+    function showDist() {
+        document.getElementById('div_temp').style.display = 'none';
+        document.getElementById('div_dist').style.display = 'block';
+        document.getElementById('div_weight').style.display = 'none';
+    }
+        
+    function showWeight() {
+        document.getElementById('div_temp').style.display = 'none';
+        document.getElementById('div_dist').style.display = 'none';
+        document.getElementById('div_weight').style.display = 'block';
+    }
+        
+    // Temperature Converter
+    function toCelcius() {
+        var t = document.getElementById('temp').value;
+        var r = document.getElementById('result');
+        
+        celcius = (5 / 9) * (t - 32);
+        r.innerHTML = celcius;
+    }
+        
+    function toFahrenheit() {
+        var t = document.getElementById('temp').value;
+        var r = document.getElementById('result');
+        
+        fahrenheit = t * (9 / 5) + 32;
+        r.innerHTML = fahrenheit;
+    }
+        
+    // Distance Converter
+    function cmToYards() {
+        var cm = document.getElementById('centimeters').value;
+        var r = document.getElementById('result_dist');
+        
+        yards = cm * .010936133;
+        r.innerHTML = yards;
+    }
+        
+    // Weight Converter
+    function toPounds() {
+        var kg = document.getElementById('kilograms').value;
+        var r = document.getElementById('result_weight');
+        
+        pounds = kg * 2.20462;
+        r.innerHTML = pounds;
+    }
+    
+    </script>
+</head>
+    
+    <body style="
+                 background-color: rgb(35,36,38);
+                 color: white;
+                 font-family: avenir;
+                 padding-top: 125px;
+                 ">
+    
+    <center>
+        
+    <h1>UNIVERSAL<font color="red">CONVERTER</font></h1>
+    
+    <div style="width: 400px; padding-bottom: 15px; border-bottom: 1px solid rgb(90,90,90);">
+        <button id="temp_id" onclick="showTemp()">Temperature</button>
+        <button id="dist" onclick="showDist()">Distance</button>
+        <button id="weight" onclick="showWeight()">Weight</button>
+    </div>
+        
+        
+    <!-- Temperature Converter -->
+    <div id="div_temp">
+        <h2 style="color: grey;">Temperature Converter</h2>
+            
+        <span style="font-style: italic;">Temperature: &nbsp;</span>
+        <input type="text" id="temp"><br><br>
+    
+        <button id="b1" onclick="toCelcius();">Convert to celcius</button>
+        <button id="b2" onclick="toFahrenheit();">Convert to fahrenheit</button><br><br>
+        
+        <div id="result"></div>
+    </div>
+        
+        
+    <!-- Distance Converter -->
+    <div id="div_dist">
+        <h2 style="color: grey;">Distance Converter</h2>
+            
+        <span style="font-style: italic;">Centimeters: &nbsp;</span>
+        <input type="text" id="centimeters"><br><br>
+    
+        <button id="b3" onclick="cmToYards();">Convert to yards</button><br><br>
+        
+        <div id="result_dist"></div>
+    </div>
+        
+        
+    <!-- Weight Converter -->
+    <div id="div_weight">
+        <h2 style="color: grey;">Weight Converter</h2>
+            
+        <span style="font-style: italic;">Kilograms: &nbsp;</span>
+        <input type="text" id="kilograms"><br><br>
+    
+        <button id="b4" onclick="toPounds();">Convert to pounds</button><br><br>
+        
+        <div id="result_weight"></div>
+    </div>
+        
+    </center>
+        
+    <script>
+        start();
+    </script>
+        
+    </body>
+</html>
