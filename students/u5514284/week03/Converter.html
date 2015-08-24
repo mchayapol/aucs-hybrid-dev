@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Temperature Converter</title>
+    <script>
+    function initializeView() {
+        document.getElementById('temperature_view').hidden = true;
+        document.getElementById('bmi_view').hidden = true;
+        document.getElementById('bmi_view').hidden = true;
+    }
+
+    function temperature_view() {
+        document.getElementById('temperature_view').hidden = false;
+        document.getElementById('bmi_view').hidden = true;
+        document.getElementById('distanct_view').hidden = true;
+    }
+
+    function convertTemp() {
+        var c = parseFloat(document.getElementById('celsuisValue_txt').value);
+        alert(c + " CELSUIS is equal to: " + (c * (1.8)) + 32 + " FAHRENHEIT");
+
+        document.getElementById('celsuisValue_txt').value = "";
+    }
+
+    function bmi_view() {
+        document.getElementById('temperature_view').hidden = true;
+        document.getElementById('bmi_view').hidden = false;
+        document.getElementById('distanct_view').hidden = true;
+    }
+
+    function bmi_calculate() {
+        var w = parseFloat(document.getElementById('weight_txt').value);
+        var h = parseFloat(document.getElementById('height_txt').value);
+
+        alert("Your BMI is: " + w / (h * h));
+
+        document.getElementById('weight_txt').value = "";
+        document.getElementById('height_txt').value = "";
+    }
+
+    function distanct_view() {
+        document.getElementById('temperature_view').hidden = true;
+        document.getElementById('bmi_view').hidden = true;
+        document.getElementById('distanct_view').hidden = false;
+    }
+
+    function distanct_calculate() {
+        var kilo = parseFloat(document.getElementById('kilo_txt').value);
+
+        alert(kilo + " KILOMETER(S) is equal to: " + (kilo * 0.621371) + " MILE(S).");
+        document.getElementById('kilo_txt').value = "";
+    }
+    </script>
+</head>
+
+<body>
+    <button onclick="temperature_view()">TEMPERATURE CONVERTOR</button>
+    <button onclick="bmi_view()">BMI CONVERTOR</button>
+    <button onclick="distanct_view()">DISTANCE CONVERTOR</button>
+    <div id="temperature_view" hidden>
+        <h1>TEMPERATURE CONVERTOR</h1>
+        <br>
+        <label>Input Celsuis Value: </label>
+        <br>
+        <input id="celsuisValue_txt" placeholder="Celsuis Value: (Ex:32)">
+        </input>
+        <br>
+        <button onclick="convertTemp()">Convert!!</button>
+        <br>
+    </div>
+    <div id="bmi_view" hidden>
+        <h1>BMI CALCULATOR</h1>
+        <br>
+        <label>Input Weight(kg): </label>
+        <br>
+        <input id="weight_txt" placeholder="60">
+        </input>
+        <br>
+        <label>Input Height(m): </label>
+        <br>
+        <input id="height_txt" placeholder="1.2">
+        </input>
+        <br>
+        <button onclick="bmi_calculate()">Calculate!!</button>
+        <br>
+    </div>
+    <div id="distanct_view" hidden>
+        <h1>DISTANCE CONVERTOR</h1>
+        <br>
+        <label>Input Kilometer value: </label>
+        <br>
+        <input id="kilo_txt" placeholder="30">
+        </input>
+        <br>
+        <button onclick="distanct_calculate()">Convert!!</button>
+        <br>
+    </div>
+</body>
+
+</html>
