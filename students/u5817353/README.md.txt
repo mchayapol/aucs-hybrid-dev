@@ -1,1 +1,0 @@
-Kamonchanok Arttanate 5817353
