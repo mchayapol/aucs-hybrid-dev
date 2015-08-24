@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<title>Temperature Converter</title>
+
+<head>
+
+<script>
+
+function convert()
+{
+	var c = document.getElementById('Celcius').value;
+	var r = document.getElementById('result');
+	farh = (c * 1.8) + 32;
+
+
+	r.innerHTML = farh;
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Temperature Converter (C to F)</h1>
+
+Temperature (C)<br>
+<input type="text" id="Celcius"><br>
+
+<button id="b1" onclick="convert()">
+	Convert
+</button><br>
+
+<div id="result"></div>
+
+</body
+
+
+</html>
