@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+function showTempDiv() {
+	document.getElementById("temp").style.display = "block";
+	document.getElementById("dis").style.display = "none";
+	document.getElementById("weight").style.display = "none";
+}
+function showDistanceDiv() {
+	document.getElementById("temp").style.display = "none";
+	document.getElementById("dis").style.display = "block";
+	document.getElementById("weight").style.display = "none";
+}
+function showWeightDiv() {
+	document.getElementById("temp").style.display = "none";
+	document.getElementById("dis").style.display = "none";
+	document.getElementById("weight").style.display = "block";
+}
+
+function calculate() {
+	var c = document.getElementById("celsius").value; 
+	var r = document.getElementById("result");
+	convert = c * 9/5 + 32;
+	r.innerHTML = "It is " + convert + " Fahrenheit";
+}
+
+function calculateKilo() {
+	var c = document.getElementById("kilo").value; 
+	var r = document.getElementById("resultkilo");
+	convert = c * 2.2046;
+	r.innerHTML = "It is " + convert + " Pounds";
+}
+
+function calculateKilom() {
+	var c = document.getElementById("kilom").value; 
+	var r = document.getElementById("resultkilom");
+	convert = c * 0.62137;
+	r.innerHTML = "It is " + convert + "Mile";
+}
+</script>
+</head>
+
+<body>
+<h1> Universal Convertor </h1>
+<button id="b1" onclick="showTempDiv()">Temp</button>
+<button id="b2" onclick="showDistanceDiv()">Distance</button>
+<button id="b3" onclick="showWeightDiv()">Weight</button>
+
+<div id="temp">Tempurature
+Celsius <br>
+<input type="text" id="celsius"><br>
+
+<button id="b1" onclick="calculate()">Convert to F</button>
+
+<div id="result"></div>
+</div>
+
+<div id="dis" style="display:none">Distance
+Distance (kilometer) <br>
+<input type="text" id="kilom"><br>
+
+<button id="b1" onclick="calculateKilom()">Convert to Miles</button>
+
+<div id="resultkilom"></div>
+</div>
+
+<div id="weight" style="display:none">Weight
+Kilogram <br>
+<input type="text" id="kilo"><br>
+
+<button id="b1" onclick="calculateKilo()">Convert to Pounds</button>
+
+<div id="resultkilo"></div>
+</div>
+
+</body>
