@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script>
+function showTempDiv() {
+  document.getElementById('d1').style.display = 'block';
+  document.getElementById('d2').style.display = 'none';
+  document.getElementById('d3').style.display = 'none';
+}
+function showDistDiv() {
+  document.getElementById('d1').style.display = 'none';
+  document.getElementById('d2').style.display = 'block';
+  document.getElementById('d3').style.display = 'none';
+}
+function showWeightDiv() {
+  document.getElementById('d1').style.display = 'none';
+  document.getElementById('d2').style.display = 'none';
+  document.getElementById('d3').style.display = 'block';
+}
+
+function convertTemp() {
+    var c = document.getElementById('d1t1').value;
+    var r1 = document.getElementById('result1');
+    f = (c * 1.8) + 32;
+    r1.innerHTML = f;
+}
+function convertDist() {
+    var km = document.getElementById('d2t1').value;
+    var r2 = document.getElementById('result2');
+    mile = km * 0.62137;
+    r2.innerHTML = mile;
+}
+function convertWeight() {
+    var kg = document.getElementById('d3t1').value;
+    var r3 = document.getElementById('result3');
+    lb = kg * 2.2046;
+    r3.innerHTML = lb;
+}
+
+
+</script>
+</head>
+<body>
+    <button id="b1" onclick="showTempDiv()">Temp</button>
+
+    <button id="b2" onclick="showDistDiv()">Distance</button>
+
+    <button id="b3" onclick="showWeightDiv()">Weight</button>
+
+    <div id="d1">
+        <h1>Temperature</h1>
+        C -> F <br>
+        <input type="text" id="d1t1"><br>
+        <button id="d1b1" onclick="convertTemp()">Convert</button>
+        <div id="result1"></div>
+    </div>
+
+    <div id="d2">
+        <h1>Distance</h1>
+        Km -> Mile <br>
+        <input type="text" id="d2t1"><br>
+        <button id="d1b1" onclick="convertDist()">Convert</button>
+        <div id="result2"></div>
+    </div>
+
+    <div id="d3">
+        <h1>Weight</h1>
+        Kg -> lbs <br>
+        <input type="text" id="d3t1"><br>
+        <button id="d1b1" onclick="convertWeight()">Convert</button>
+        <div id="result3"></div>
+    </div>
+
+    <script>  showTempDiv();  </script>
+</body>
+</html>

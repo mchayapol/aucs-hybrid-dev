@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script>
+    function convert() {
+        var c = document.getElementById('celsius').value;
+        var r = document.getElementById('result');
+        f = (c * 1.8) + 32;
+        r.innerHTML = f;
+    }
+</script>
+   
+   
+</head>
+<body>
+    <h1>Temperature Calculator</h1>
+    Celsius<br>
+    <input type="text" id="celsius"><br>
+
+    <button id="t1" onclick="convert()">Convert</button><br />
+
+    <div id="result"></div>
+</body>
+</html>
