@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+<script>
+function showTempDiv() {
+  document.getElementById('d1').style.display = 'block';
+  document.getElementById('d2').style.display = 'none';
+  document.getElementById('d3').style.display = 'none';
+}
+
+function showDistDiv() {
+  document.getElementById('d1').style.display = 'none';
+  document.getElementById('d2').style.display = 'block';
+  document.getElementById('d3').style.display = 'none';
+}
+
+function showWeightDiv() {
+  document.getElementById('d1').style.display = 'none';
+  document.getElementById('d2').style.display = 'none';
+  document.getElementById('d3').style.display = 'block';
+}
+
+</script>
+</head>
+<html>
+<button id="b1" onclick="showTempDiv()">Temp</button>
+
+<button id="b2" onclick="showDistDiv()">Distance</button>
+
+<button id="b3" onclick="showWeightDiv()">Weight</button>
+
+<div id="d1"><h1>Temperature</h1>
+  <input type="text" id="d1t1"><br>
+  <input type="text" id="d1t2"><br>
+  <button id="d1b1">Convert</button>
+</div>
+
+<div id="d2"><h1>Distance</h1>
+</div>
+<div id="d3"><h1>Weight</h1>
+</div>
+
+<script>  showTempDiv();  </script>
+
+</html>
