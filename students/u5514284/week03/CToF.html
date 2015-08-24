@@ -1,0 +1,18 @@
+<!DOCTYPE>
+<html>
+<script type="text/javascript">
+function action1(){
+	var f = document.getElementById("Fah");
+	var c = document.getElementById("Cel");
+
+	f.value = (parseFloat(c.value)*1.8)+32;
+}
+</script>
+<body>
+<h1> Calculate Temp. </h1>
+<input type="text" id="Cel">
+<button id="b1" onclick="action1();"> Calculate </button><br>
+<input type="text" id="Fah" readonly><br>
+
+</body>
+</html>
