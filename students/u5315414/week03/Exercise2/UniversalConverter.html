@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+<script>
+function showTempDiv() {
+  document.getElementById('d1').style.display = 'block';
+  document.getElementById('d2').style.display = 'none';
+  document.getElementById('d3').style.display = 'none';
+}
+
+function showDistDiv() {
+  document.getElementById('d1').style.display = 'none';
+  document.getElementById('d2').style.display = 'block';
+  document.getElementById('d3').style.display = 'none';
+}
+
+function showWeightDiv() {
+  document.getElementById('d1').style.display = 'none';
+  document.getElementById('d2').style.display = 'none';
+  document.getElementById('d3').style.display = 'block';
+}
+
+function CelctoFarh()
+{
+	var c = document.getElementById('d1t1').value;
+	var r = document.getElementById('result1');
+	farh = (c * 1.8) + 32;
+
+
+	r.innerHTML = farh;
+}
+
+function FarhtoCelc()
+{
+	var f = document.getElementById('d1t2').value;
+	var r = document.getElementById('result1');
+	c = (f - 32) / 1.8;
+
+
+	r.innerHTML = c;
+}
+
+function MtoKM()
+{
+	var m = document.getElementById('d2t2').value;
+	var r = document.getElementById('result2');
+	km = m / 0.62137;
+
+	r.innerHTML = km;
+}
+
+function KMtoM()
+{
+	var km = document.getElementById('d2t1').value;
+	var r = document.getElementById('result2');
+	m = km * 0.62137
+
+	r.innerHTML = m;
+}
+
+function LBtoKG()
+{
+	var lb = document.getElementById('d3t1').value;
+	var r = document.getElementById('result3');
+	kg = lb / 2.2046;
+
+	r.innerHTML = kg;
+}
+
+function KGtoLB()
+{
+	var kg = document.getElementById('d3t2').value;
+	var r = document.getElementById('result3');
+	lb = kg * 2.2046
+
+	r.innerHTML = lb;
+}
+
+</script>
+</head>
+<html>
+<button id="b1" onclick="showTempDiv()">Temp</button>
+
+<button id="b2" onclick="showDistDiv()">Distance</button>
+
+<button id="b3" onclick="showWeightDiv()">Weight</button>
+
+<div id="d1"><h1>Temperature</h1>
+	<input type="text" id="d1t1">Celcius<br>
+	<input type="text" id="d1t2">Fahrenheit<br>
+	<button id="d1b1" onclick="CelctoFarh()">Convert (C to F)</button>
+	<button id="d1b2" onclick="FarhtoCelc()">Convert (F to C)</button>
+	<div id="result1"></div>
+</div>
+
+<div id="d2"><h1>Distance</h1>
+	<input type="text" id="d2t1">Kilometers<br>
+	<input type="text" id="d2t2">Miles<br>
+	<button id="d2b1" onclick="KMtoM()">Convert (km to M)</button>
+	<button id="d2b2" onclick="MtoKM()">Convert (M to km)</button>
+	<div id="result2"></div>
+
+</div>
+<div id="d3"><h1>Weight</h1>
+	<input type="text" id="d3t1">Pounds (lbs)<br>
+	<input type="text" id="d3t2">Kilograms (kg)<br>
+	<button id="d3b1" onclick="KGtoLB()">Convert (kg to lbs)</button>
+	<button id="d3b2" onclick="LBtoKG()">Convert (lbs to kg)</button>
+	<div id="result3"></div>
+</div>
+
+<script>  showTempDiv();  </script>
+
+</html>
