@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <head>
+    <title>Contacts</title>
 <script src="contact.js"></script>
 <script>
 var c1 = new Contact('Chayapol','Moemeng','0899999999');
+var c2 = new Contact('Prateep', 'D.', '088888888');
+var c3 = new Contact('Jump', 'S.', '087777777');
+
+var list = [];  // create an array / list
+list[0] = c1;
+list[1] = c2;
+list[2] = c3;
 
 console.log(c1.fullname());
+c1.sayHello();
 c1.sayHi();
 
 </script>
@@ -25,17 +34,35 @@ c1.sayHi();
 </style>
 </head>
 <html>
-	<div id="divList">
-	<h1>List</h1>
-	<span id="spanList">
-	<span>
-	</div>
-	
-	<div id="divDetails">
-	<h1>Details</h1>
-	<span id="spanDetails">
-	</span>
-	</div>
+<body>
+    <div id="divList">
+        <h1>List</h1>
+        <table id="tabList">
+        </table>
+        <span id="spanList">
 
+        </span>
+    </div>
+
+    <div id="divDetails">
+        <h1>Details</h1>
+        <span id="spanDetails">
+        </span>
+    </div>
+    <script>
+        // Populate list into table
+        var tabList = document.getElementById('tabList');
+        for (var i = 0; i < list.length; i++) {
+            var r = tabList.insertRow(tabList.rows.length);
+            c0 = r.insertCell(0);
+            c1 = r.insertCell(1);
+            c0.innerHTML = list[i].picture;
+            c1.innerHTML = list[i].fullname();
+
+
+        }
+
+    </script>
+</body>
 
 </html>
