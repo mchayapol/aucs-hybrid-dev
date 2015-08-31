@@ -3,6 +3,16 @@
     <title>Contacts</title>
 <script src="contact.js"></script>
 <script>
+
+
+    function restoreUI() {
+        var divList = document.getElementById('divList');
+        divList.style.display = "block";
+        var divDetails = document.getElementById('divDetails');
+        divDetails.style.marginLeft = "420px";
+    }
+
+    var currentContact;
 var c1 = new Contact('Chayapol','Moemeng','0899999999');
 var c2 = new Contact('Prateep', 'D.', '088888888');
 var c3 = new Contact('Jump', 'S.', '087777777');
@@ -33,6 +43,7 @@ c1.sayHi();
 
 #divDetails {
 	margin-left: 410px;
+    z-index: 999;
 }
 
     .avatar {
@@ -63,15 +74,35 @@ c1.sayHi();
     </div>
 
     <div id="divDetails">
-        <h1>Details</h1>
+        <button onclick="restoreUI()" id="btnBack"><img width="32px" src="back.jpg" /></button>
+        <h1><span id="spanFullname"></span></h1>
+        Phone: <span id="spanPhone"></span><br />
+        Email: <span id="spanEmail"></span>
         <span id="spanDetails">
         </span>
     </div>
     <script>
         // Populate list into table
+        console.log(list.length);
         var tabList = document.getElementById('tabList');
-        for (var i = 0; i < list.length; i++) {
+        //for (var i = 0; i < list.length; i++) {
+        for(var i in list) {
             var r = tabList.insertRow(tabList.rows.length);
+            r.onclick = function () {
+                var divList = document.getElementById('divList');
+                divList.style.display = "none";
+                var divDetails = document.getElementById('divDetails');
+                divDetails.style.marginLeft = "0px";
+
+
+                /*
+                console.log('clicked '+i);
+                currentContact = list[i];
+                document.getElementById('spanFullname').innerHTML = list[i].fullname();
+                document.getElementById('spanPhone').innerHTML = list[i].phone;
+                document.getElementById('spanEmail').innerHTML = list[i].email;
+                */
+            };
             c0 = r.insertCell(0);
             c1 = r.insertCell(1);
             c0.innerHTML = "<img src='" + list[i].picture + "' class='avatar'>";
