@@ -95,13 +95,11 @@ c1.sayHi();
                 divDetails.style.marginLeft = "0px";
 
 
-                /*
                 console.log('clicked '+i);
-                currentContact = list[i];
-                document.getElementById('spanFullname').innerHTML = list[i].fullname();
-                document.getElementById('spanPhone').innerHTML = list[i].phone;
-                document.getElementById('spanEmail').innerHTML = list[i].email;
-                */
+                currentContact = list[this.rowIndex];
+                document.getElementById('spanFullname').innerHTML = list[this.rowIndex].fullname();
+                document.getElementById('spanPhone').innerHTML = list[this.rowIndex].phone;
+                document.getElementById('spanEmail').innerHTML = list[this.rowIndex].email;
             };
             c0 = r.insertCell(0);
             c1 = r.insertCell(1);
