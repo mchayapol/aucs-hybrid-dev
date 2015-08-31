@@ -2,7 +2,6 @@
 
 <head>
     <title>Contacts</title>
-<<<<<<< HEAD
     <script src="contact.js"></script>
     <script>
     var globalVar = "GLOBAL";
@@ -10,35 +9,6 @@
     var c1 = new Contact('Chayapol', 'Moemeng', '0899999999');
     var c2 = new Contact('Patipan', 'Premrat', '0899999999');
     var c3 = new Contact('MR.A', 'A.Surename', '087777777');
-=======
-<script src="contact.js"></script>
-<script>
-
-
-    function restoreUI() {
-        var divList = document.getElementById('divList');
-        divList.style.display = "block";
-        var divDetails = document.getElementById('divDetails');
-        divDetails.style.marginLeft = "420px";
-    }
-
-    var currentContact;
-var c1 = new Contact('Chayapol','Moemeng','0899999999');
-var c2 = new Contact('Prateep', 'D.', '088888888');
-var c3 = new Contact('Jump', 'S.', '087777777');
-c1.picture = 'avatar.png';
-c2.picture = 'avatar.png';
-c3.picture = 'avatar.png';
-
-var list = [];  // create an array / list
-list[0] = c1;
-list[1] = c2;
-list[2] = c3;
-
-console.log(c1.fullname());
-c1.sayHello();
-c1.sayHi();
->>>>>>> 7ba196852d87405deff024d7b23f0d39ad8ad97f
 
     var data_arr = [];
     data_arr.push(c2);
@@ -46,7 +16,6 @@ c1.sayHi();
     data_arr.push(c3);
 
 
-<<<<<<< HEAD
     console.log(c1.fullname());
     c1.sayHi();
     c1.sayHello();
@@ -132,76 +101,5 @@ function restoreUI() {
     divDetails.style.marginLeft = "420px";
 }
 </script>
-=======
-#divDetails {
-	margin-left: 410px;
-    z-index: 999;
-}
-
-    .avatar {
-        border: 1px solid red;
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-    }
-
-    .fullname {
-        font: bold 24px arial;
-    }
-
-    .phone {
-        font: normal 18px arial;
-    }
-</style>
-</head>
-<html>
-<body>
-    <div id="divList">
-        <h1>List</h1>
-        <table id="tabList">
-        </table>
-        <span id="spanList">
-
-        </span>
-    </div>
-
-    <div id="divDetails">
-        <button onclick="restoreUI()" id="btnBack"><img width="32px" src="back.jpg" /></button>
-        <h1><span id="spanFullname"></span></h1>
-        Phone: <span id="spanPhone"></span><br />
-        Email: <span id="spanEmail"></span>
-        <span id="spanDetails">
-        </span>
-    </div>
-    <script>
-        // Populate list into table
-        console.log(list.length);
-        var tabList = document.getElementById('tabList');
-        //for (var i = 0; i < list.length; i++) {
-        for(var i in list) {
-            var r = tabList.insertRow(tabList.rows.length);
-            r.onclick = function () {
-                var divList = document.getElementById('divList');
-                divList.style.display = "none";
-                var divDetails = document.getElementById('divDetails');
-                divDetails.style.marginLeft = "0px";
-
-
-                console.log('clicked '+i);
-                currentContact = list[this.rowIndex];
-                document.getElementById('spanFullname').innerHTML = list[this.rowIndex].fullname();
-                document.getElementById('spanPhone').innerHTML = list[this.rowIndex].phone;
-                document.getElementById('spanEmail').innerHTML = list[this.rowIndex].email;
-            };
-            c0 = r.insertCell(0);
-            c1 = r.insertCell(1);
-            c0.innerHTML = "<img src='" + list[i].picture + "' class='avatar'>";
-            c1.innerHTML = "<span class='fullname'>" + list[i].fullname() + "</span><br>" +
-                           "<span class='phone'>" + list[i].phone + "</span>";
-        }
-
-    </script>
-</body>
->>>>>>> 7ba196852d87405deff024d7b23f0d39ad8ad97f
 
 </html>
