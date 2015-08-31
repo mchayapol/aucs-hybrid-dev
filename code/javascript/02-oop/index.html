@@ -6,6 +6,9 @@
 var c1 = new Contact('Chayapol','Moemeng','0899999999');
 var c2 = new Contact('Prateep', 'D.', '088888888');
 var c3 = new Contact('Jump', 'S.', '087777777');
+c1.picture = 'avatar.png';
+c2.picture = 'avatar.png';
+c3.picture = 'avatar.png';
 
 var list = [];  // create an array / list
 list[0] = c1;
@@ -31,6 +34,21 @@ c1.sayHi();
 #divDetails {
 	margin-left: 410px;
 }
+
+    .avatar {
+        border: 1px solid red;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+    .fullname {
+        font: bold 24px arial;
+    }
+
+    .phone {
+        font: normal 18px arial;
+    }
 </style>
 </head>
 <html>
@@ -56,10 +74,9 @@ c1.sayHi();
             var r = tabList.insertRow(tabList.rows.length);
             c0 = r.insertCell(0);
             c1 = r.insertCell(1);
-            c0.innerHTML = list[i].picture;
-            c1.innerHTML = list[i].fullname();
-
-
+            c0.innerHTML = "<img src='" + list[i].picture + "' class='avatar'>";
+            c1.innerHTML = "<span class='fullname'>" + list[i].fullname() + "</span><br>" +
+                           "<span class='phone'>" + list[i].phone + "</span>";
         }
 
     </script>
