@@ -2,23 +2,74 @@
 
 <head>
     <title>Contacts</title>
-    <script src="contact.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/jquery-1.11.3.js">
+    </script>
     <script>
-    var globalVar = "GLOBAL";
+    $(document).ready(function() {
 
-    var c1 = new Contact('Chayapol', 'Moemeng', '0899999999');
-    var c2 = new Contact('Patipan', 'Premrat', '0899999999');
-    var c3 = new Contact('MR.A', 'A.Surename', '087777777');
+        var globalVar = "GLOBAL";
 
-    var data_arr = [];
-    data_arr.push(c2);
-    data_arr.push(c1);
-    data_arr.push(c3);
+        var c1 = new Contact('Chayapol', 'Moemeng', '0899999999');
+        var c2 = new Contact('Patipan', 'Premrat', '0899999999');
+        var c3 = new Contact('MR.A', 'A.Surename', '087777777');
+
+        var data_arr = [];
+        data_arr.push(c2);
+        data_arr.push(c1);
+        data_arr.push(c3);
 
 
-    console.log(c1.fullname());
-    c1.sayHi();
-    c1.sayHello();
+        console.log(c1.fullname());
+        c1.sayHi();
+        c1.sayHello();
+
+        // var table = document.getElementById("table_list");
+        for (var i in data_arr) {
+            // var row = table.insertRow(table.rows.length);
+
+            var tr = $('<tr><td><img src="' + data_arr[i].picture + '" class="avatar"></td><td><span class="fullname">' + data_arr[i].fullname() + '</span><br><span class="phone">' + data_arr[i].phone + '</span></td></tr>');
+            $('#table_list').append(tr); //Recently Last Row
+
+            $('#table_list tr').click(function() {
+                //alert(globalVar);
+                $('#divList').css({
+                    'display': 'none'
+                });
+                $('#divDetails').css({
+                    'margin-left': '0px'
+                });
+                // document.getElementById("name_span").innerHTML = data_arr[this.rowIndex].fullname();
+                $('#name_span').html(data_arr[this.rowIndex].fullname());
+                // document.getElementById("phone_span").innerHTML = data_arr[this.rowIndex].phone;
+                $('#phone_span').html(data_arr[this.rowIndex].phone);
+                // document.getElementById("mail_span").innerHTML = data_arr[this.rowIndex].email + (this.rowIndex + 1);
+                $('#mail_span').html(data_arr[this.rowIndex].email + (this.rowIndex + 1));
+            });
+            // $('#table_list tr').append('<td><label><input type="radio" id="location-radio" value="test" />Test</label></td>');
+            // var cell1 = row.insertCell(0);
+            // var cell2 = row.insertCell(1);
+            // cell1.innerHTML = '<img src="' + data_arr[i].picture + '" class="avatar">';
+            // cell2.innerHTML = '<span class="fullname">' + data_arr[i].fullname() + '</span><br><span class="phone">' + data_arr[i].phone + '</span>';
+        }
+
+        $('#btnBack').click(function() {
+            $('#divList').css({
+                'display': 'block'
+            });
+            // var divList = document.getElementById('divList');
+            // divList.style.display = "block";
+            $('#divDetails').css({
+                'margin-left': '420px'
+            });
+            // var divDetails = document.getElementById('divDetails');
+            // divDetails.style.marginLeft = "420px";
+
+            $('#name_span').html("");
+            $('#phone_span').html("");
+            $('#mail_span').html("");
+        });
+    });
     </script>
     <style>
     #divList,
@@ -26,6 +77,34 @@
         border: 1px solid black;
         width: 400px;
         height: 600px;
+        animation: slideLeft;
+        -webkit-animation: slideLeft;
+        animation-duration: 1s;
+        -webkit-animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        -webkit-animation-timing-function: ease-in-out;
+        visibility: visible !important;
+    }
+    
+    @keyframes slideLeft {
+        0% {
+            transform: translateX(150%);
+        }
+        50% {
+            transform: translateX(-8%);
+        }
+        65% {
+            transform: translateX(4%);
+        }
+        80% {
+            transform: translateX(-4%);
+        }
+        95% {
+            transform: translateX(2%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
     }
     
     #divList {
@@ -37,10 +116,8 @@
     }
     
     .avatar {
-        /*border: 1px solid;*/
         width: 180px;
         height: 60px;
-        /*border-radius: 50%;*/
     }
     
     .fullname {
@@ -57,49 +134,20 @@
 <div id="divList">
     <h1><center>List</center></h1>
     <span id="spanList">
-		<table id="table_list">
-		</table>
-	</span>
+        <table id="table_list">
+        </table>
+    </span>
 </div>
 <div id="divDetails">
-    <button onclick="restoreUI()" id="btnBack"><img width="32px" src="back.png" /></button>
+    <button id="btnBack"><img width="32px" src="back.png" /></button>
     <h1><center>Details</center></h1>
     <span id="spanDetails">
-		Fullname:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="name_span"></span>
+        Fullname:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="name_span"></span>
     <br> Phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span id="phone_span"></span>
     <br> Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span id="mail_span"></span>
     </span>
 </div>
-<script>
-var table = document.getElementById("table_list");
-//for(var i =0; i < data_arr.length; i++){
-for (var i in data_arr) {
-    var row = table.insertRow(table.rows.length);
-    row.onclick = function() {
-        //alert(globalVar);
-        var divList = document.getElementById('divList');
-        divList.style.display = "none";
-        var divDetails = document.getElementById('divDetails');
-        divDetails.style.marginLeft = "0px";
-        document.getElementById("name_span").innerHTML = data_arr[this.rowIndex].fullname();
-        document.getElementById("phone_span").innerHTML = data_arr[this.rowIndex].phone;
-        document.getElementById("mail_span").innerHTML = data_arr[this.rowIndex].email + (this.rowIndex + 1);
-    }
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    //cell1.innerHTML = data_arr[i].firstname;
-    cell1.innerHTML = '<img src="' + data_arr[i].picture + '" class="avatar">';
-    cell2.innerHTML = '<span class="fullname">' + data_arr[i].fullname() + '</span><br><span class="phone">' + data_arr[i].phone + '</span>';
-}
-
-function restoreUI() {
-    var divList = document.getElementById('divList');
-    divList.style.display = "block";
-    var divDetails = document.getElementById('divDetails');
-    divDetails.style.marginLeft = "420px";
-}
-</script>
 
 </html>
