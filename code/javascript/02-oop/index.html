@@ -8,27 +8,40 @@
     <script>
     $(document).ready(function() {
 
-        var globalVar = "GLOBAL";
+        //Hide Add Div
+        $('#divAdd').hide();
 
-        var c1 = new Contact('Chayapol', 'Moemeng', '0899999999');
-        var c2 = new Contact('Patipan', 'Premrat', '0899999999');
-        var c3 = new Contact('MR.A', 'A.Surename', '087777777');
+        // var c1 = new Contact('Chayapol', 'Moemeng', '0899999999');
+        // var c2 = new Contact('Patipan', 'Premrat', '0899999999');
+        // var c3 = new Contact('MR.A', 'A.Surename', '087777777');
 
-        var data_arr = [];
-        data_arr.push(c2);
-        data_arr.push(c1);
-        data_arr.push(c3);
+        // var data_arr = [];
+        // data_arr.push(c2);
+        // data_arr.push(c1);
+        // data_arr.push(c3);
 
+        // var myJsonString = JSON.stringify(data_arr);
+        // console.log(myJsonString);
+        // var jsonData = JSON.parse(myJsonString);
+        // console.log(jsonData);
+        // console.log(jsonData[0].firstname);
 
-        console.log(c1.fullname());
-        c1.sayHi();
-        c1.sayHello();
+        // Store
+        // var dataJ = localStorage.contactData;
 
+        //Check Storage is Appear
+        try {
+            var jSonData = JSON.parse(localStorage.contactData);
+        } catch (e) {
+            localStorage.contactData = "[]";
+            var jSonData = JSON.parse(localStorage.contactData);
+        }
+        
         // var table = document.getElementById("table_list");
-        for (var i in data_arr) {
+        for (var i = 0; i < jSonData.length; i++) {
             // var row = table.insertRow(table.rows.length);
 
-            var tr = $('<tr><td><img src="' + data_arr[i].picture + '" class="avatar"></td><td><span class="fullname">' + data_arr[i].fullname() + '</span><br><span class="phone">' + data_arr[i].phone + '</span></td></tr>');
+            var tr = $('<tr><td><img src="' + jSonData[i].picture + '" class="avatar"></td><td><span class="fullname">' + jSonData[i].firstname + '  ' + jSonData[i].lastname + '</span><br><span class="phone">' + jSonData[i].phone + '</span></td></tr>');
             $('#table_list').append(tr); //Recently Last Row
 
             $('#table_list tr').click(function() {
@@ -40,40 +53,85 @@
                     'margin-left': '0px'
                 });
                 // document.getElementById("name_span").innerHTML = data_arr[this.rowIndex].fullname();
-                $('#name_span').html(data_arr[this.rowIndex].fullname());
+                $('#name_span').html(jSonData[this.rowIndex].firstname + ' ' + jSonData[this.rowIndex].lastname);
                 // document.getElementById("phone_span").innerHTML = data_arr[this.rowIndex].phone;
-                $('#phone_span').html(data_arr[this.rowIndex].phone);
+                $('#phone_span').html(jSonData[this.rowIndex].phone);
                 // document.getElementById("mail_span").innerHTML = data_arr[this.rowIndex].email + (this.rowIndex + 1);
-                $('#mail_span').html(data_arr[this.rowIndex].email + (this.rowIndex + 1));
+                $('#mail_span').html(jSonData[this.rowIndex].email + (this.rowIndex + 1));
             });
-            // $('#table_list tr').append('<td><label><input type="radio" id="location-radio" value="test" />Test</label></td>');
-            // var cell1 = row.insertCell(0);
-            // var cell2 = row.insertCell(1);
-            // cell1.innerHTML = '<img src="' + data_arr[i].picture + '" class="avatar">';
-            // cell2.innerHTML = '<span class="fullname">' + data_arr[i].fullname() + '</span><br><span class="phone">' + data_arr[i].phone + '</span>';
         }
 
         $('#btnBack').click(function() {
             $('#divList').css({
                 'display': 'block'
             });
-            // var divList = document.getElementById('divList');
-            // divList.style.display = "block";
             $('#divDetails').css({
                 'margin-left': '420px'
             });
-            // var divDetails = document.getElementById('divDetails');
-            // divDetails.style.marginLeft = "420px";
 
             $('#name_span').html("");
             $('#phone_span').html("");
             $('#mail_span').html("");
         });
+
+        $('#btnAdd').click(function() {
+            //Show adding DIV
+            $('#divDetails').hide();
+            $('#divList').hide();
+            $('#divAdd').show();
+
+            //Set to left
+            $('#divAdd').css({
+                'margin-left': '0px'
+            });
+
+        });
+
+        $('#btnBack2').click(function() {
+            $('#divDetails').show();
+            $('#divList').show();
+            $('#divAdd').hide();
+
+            $('#divList').css({
+                'display': 'block'
+            });
+            $('#divDetails').css({
+                'margin-left': '420px'
+            });
+
+            $('#name_span').html("");
+            $('#phone_span').html("");
+            $('#mail_span').html("");
+
+            location.reload();
+        });
+
+        //ADD Contact BTN
+        $('#addContact').click(function() {
+            var firstname = $('#firstname_add').val();
+            var lastname = $('#lastname_add').val();
+            var phone = $('#phone_add').val();
+
+            var newContact = new Contact(firstname, lastname, phone);
+
+            //Save to Local Storage
+            var jSonData = JSON.parse(localStorage.contactData);
+            console.log(jSonData);
+            jSonData.push(newContact);
+
+            var result_after_parse = JSON.stringify(jSonData);
+            localStorage.contactData = result_after_parse;
+
+            alert('Adding Sucessful');
+            $("#btnBack2").trigger("click");
+        });
+
     });
     </script>
     <style>
     #divList,
-    #divDetails {
+    #divDetails,
+    #divAdd {
         border: 1px solid black;
         width: 400px;
         height: 600px;
@@ -115,6 +173,10 @@
         margin-left: 410px;
     }
     
+    #divAdd {
+        margin-left: 810px;
+    }
+    
     .avatar {
         width: 180px;
         height: 60px;
@@ -132,6 +194,7 @@
 </head>
 <html>
 <div id="divList">
+    <button id="btnAdd"><img width="32px" src="add_icon.png" /></button>
     <h1><center>List</center></h1>
     <span id="spanList">
         <table id="table_list">
@@ -148,6 +211,29 @@
     <br> Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span id="mail_span"></span>
     </span>
+</div>
+<div id="divAdd">
+    <button id="btnBack2"><img width="32px" src="back.png" /></button>
+    <h1><center>ADD NEW CONTACT</center></h1>
+    <form>
+        First name:
+        <br>
+        <input type="text" id="firstname_add">
+        <br> Last name:
+        <br>
+        <input type="text" id="lastname_add">
+        <br> Phone:
+        <br>
+        <input type="text" id="phone_add">
+        <!-- <br> E-Mail:
+        <br>
+        <input type="text" id="email_add"> -->
+    </form>
+    <br>
+    <br>
+    <center>
+        <button id="addContact"><img width="120px" src="add_contact_icon.png" /></button>
+    </center>
 </div>
 
 </html>
