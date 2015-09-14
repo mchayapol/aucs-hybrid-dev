@@ -1,0 +1,79 @@
+<!DCOTYPE html>
+<head>
+    <title>Test</title>
+<script src="js/jquery-1.11.3.min.js"></script>
+
+<script>
+    function reloadContact() {
+        // Load all contacts into div2        
+        console.log(localStorage.contactList);
+        // It could happen that localStorage.contactList has never been defined.
+        // So, you'll get 'undefined'.
+
+        var list;
+        if (typeof localStorage.contactList === "undefined") {
+            list = [];
+        } else {
+            list = JSON.parse(localStorage.contactList);
+        }
+
+        var listHTML = '';
+        for (var c in list) {
+            console.log('c' + c);
+            listHTML += "<li>" + list[c].firstname + " " + list[c].lastname + "</li>";
+        }
+        $('#div2').html("<ul>" + listHTML + "</ul>");
+
+        return list;
+    }
+
+    $(document).ready(function () {
+ 
+        var list = reloadContact();
+
+        //localStorage.contact = JSON.stringify(contactA);
+        var tempContact = JSON.parse( localStorage.contact );
+
+        console.log(tempContact);
+
+        $('#firstname').val(tempContact.firstname);
+        $('#lastname').val(tempContact.lastname);
+        $('#name').html(  );
+
+        // Add button event handler (an annonymous callback function)
+        $('#btn1').click(
+            function () {
+                // Add to the list and 
+                // Update the current localStorage.contactList
+                tempContact.firstname = $('#firstname').val();
+                tempContact.lastname = $('#lastname').val();
+                console.log($('#firstname').val() + '--' + tempContact.firstname);
+
+                // Add into the list
+                list[list.length] = tempContact;
+                localStorage.contactList = JSON.stringify(list);
+
+                console.log(JSON.stringify(tempContact));
+                localStorage.setItem("contact", JSON.stringify(tempContact));
+
+                list = reloadContact();
+            }
+        );
+    });
+
+</script>
+
+</head>
+<html>
+<body>
+    <div id="div1">
+        <input type="text" id="firstname" /><br />
+        <input type="text" id="lastname" /><br />
+        <span id="name"></span>
+        <button id="btn1">Add Contact</button>
+    </div>
+    <div id="div2"></div>
+
+</body>
+
+</html>
