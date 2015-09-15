@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<head>
+    <title>Contacts</title>
+<script src="js/contact.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+
+<script>
+
+    function restoreUI() {
+        var divList = document.getElementById('divList');
+        divList.style.display = "block";
+        var divDetails = document.getElementById('divDetails');
+        divDetails.style.marginLeft = "420px";
+    }
+
+    var currentContact;
+var c1 = new Contact('Chayapol','Moemeng','0899999999');
+var c2 = new Contact('Prateep', 'D.', '088888888');
+var c3 = new Contact('Jump', 'S.', '087777777');
+c1.picture = 'avatar.png';
+c2.picture = 'avatar.png';
+c3.picture = 'avatar.png';
+
+var list = [];  // create an array / list
+list[0] = c1;
+list[1] = c2;
+list[2] = c3;
+
+console.log(c1.fullname());
+c1.sayHello();
+c1.sayHi();
+
+        $(document).ready(function () {
+            // Populate list into table
+            console.log(list.length);
+
+            for (var i in list) {
+                // refer to the new row recently created
+                $('#tabList tr:last')
+                    .after("<tr><td><img src='" + list[i].picture + "' class='avatar'></td>" +
+                           "<td><span class='fullname'>" + list[i].fullname() + "</span><br>" +
+                           "<span class='phone'>" + list[i].phone + "</span></td></tr>");
+                $('#tabList tr:last').click(function () {
+                    $('#divList').css(
+                        { 'display' : 'none' }
+                    );
+                    $('#divDetails').css({ 'margin-left' : '0px'});
+
+                    console.log('clicked ' + i);
+                    currentContact = list[this.rowIndex];
+                    $('#imgAvatar').attr('src', list[this.rowIndex].picture);
+                    $('#spanFullname').html(list[this.rowIndex].fullname());
+                    $('#spanPhone').html(list[this.rowIndex].phone);
+                    $('#spanEmail').html(list[this.rowIndex].email);
+                });
+
+            }
+
+        });
+
+
+    </script>
+<style>
+#divList, #divDetails {
+	border: 1px solid black;
+	width: 400px;
+	height: 600px;
+}
+
+#divList {
+	float: left;
+}
+
+#divDetails {
+	margin-left: 410px;
+    z-index: 999;
+}
+
+    .avatar {
+        border: 1px solid red;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+    .fullname {
+        font: bold 24px arial;
+    }
+
+    .phone {
+        font: normal 18px arial;
+    }
+</style>
+</head>
+<html>
+<body>
+    <div id="divList">
+        <h1>List</h1>
+        <table id="tabList">
+            <tr><td></td><td></td></tr>
+        </table>
+        <span id="spanList">
+
+        </span>
+    </div>
+
+    <div id="divDetails">
+        <button onclick="restoreUI()" id="btnBack"><img width="32px" src="back.jpg" /></button>
+        <h1><span id="spanFullname"></span></h1>
+        <img id="imgAvatar" /><br />
+        Phone: <span id="spanPhone"></span><br />
+        Email: <span id="spanEmail"></span>
+        <span id="spanDetails">
+        </span>
+    </div>
+
+</body>
+
+</html>
