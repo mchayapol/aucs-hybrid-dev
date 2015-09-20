@@ -10,26 +10,21 @@
 //     var divDetails = document.getElementById('divDetails');
 //     divDetails.style.marginLeft = "420px";
 // }
-
 // $('#btnBack').click( function(){
 // 	$('#divList').css({'display' : 'block'});
 // 	$('#divDetails').css({'margin-left' : '420px'});
-
 // 	// var divList = document.getElementById('divList');
 //  //    divList.style.display = "block";
 //  //    var divDetails = document.getElementById('divDetails');
 //  //    divDetails.style.marginLeft = "420px";
 // });
-
 var currentContact;
-
 var c1 = new Contact('Chayapol','Moemeng','0899999999');
 var c2 = new Contact('Bank','Eiei','0123456789');
 var c3 = new Contact('Bas', 'uu', '0987654321');
 c1.picture = 'http://vignette4.wikia.nocookie.net/happytreefanon/images/8/8b/Traumatized_Giggles.png/revision/latest?cb=20131225234317';
 c2.picture = 'http://vignette4.wikia.nocookie.net/happytreefanon/images/8/8b/Traumatized_Giggles.png/revision/latest?cb=20131225234317';
 c3.picture = 'http://vignette4.wikia.nocookie.net/happytreefanon/images/8/8b/Traumatized_Giggles.png/revision/latest?cb=20131225234317';
-
 c1.email = "test@gmail.com"
 c2.email = "test@gmail.com"
 c3.email = "test@gmail.com"
@@ -38,10 +33,8 @@ var list = []; // create an array / list
 list[0] = c1;
 list[1] = c2;
 list[2] = c3;
-
 console.log(c1.fullname());
 c1.sayHello();
-
 </script>
 <style>
 #divList, #divDetails {
@@ -97,54 +90,41 @@ c1.sayHello();
         //var tabList = document.getElementById('tablist');
         for (var i in list) {
             //var r = tabList.insertRow(tabList.rows.length);
-
             //$('#tablist tr:last').after('<tr></tr>');
             $('#tablist').append('<tr><td><img src="'+list[i].picture+'" class="avatar"></td><td><span class="fullname"> '+list[i].fullname()+'</span><br><span class="phone">'+list[i].phone+'</span></td></tr>');
-
             $('#tablist tr').click( function(){
             	$('#divList').css( {'display' : 'none' } );
 				$('#divDetails').css( {'margin-left' : '0px'} );
-
 				$('#spanFullname').html(list[this.rowIndex].fullname());
             	$('#spanPhone').html(list[this.rowIndex].phone);
             	$('#spanEmail').html(list[this.rowIndex].email);
             });
-
             $('#btnBack').click( function(){
 				$('#divList').css({'display' : 'block'});
 				$('#divDetails').css({'margin-left' : '420px'});
 			});
-
     //         r.onclick = function () {
-
 				// // var divList = document.getElementById('divList');
 				// // divList.style.display = "none";
 				// // var divDetails = document.getElementById('divDetails');
 				// // divDetails.style.marginLeft  = "0px";
-
 				// /////
 				// $('#divList').css( {'display' : 'none' } );
 				// $('#divDetails').css( {'margin-left' : '0px'} );
-
     //         	console.log('clicked' + this.rowIndex);
     //         	currentContact = list[this.rowIndex];
     //         	// document.getElementById('spanFullname').innerHTML = currentContact.fullname();
     //         	// document.getElementById('spanPhone').innerHTML = currentContact.phone;
     //         	// document.getElementById('spanEmail').innerHTML = currentContact.email;
-
     //         	$('#spanFullname').html(list[this.rowIndex].fullname());
     //         	$('#spanPhone').html(list[this.rowIndex].phone);
     //         	$('#spanEmail').html(list[this.rowIndex].email);
     //         };
-
-
-
             // c0 = r.insertCell(0);
             // c1 = r.insertCell(1);
             // c0.innerHTML = "<img src='" + list[i].picture + "' class='avatar'>";
             // c1.innerHTML = "<span class='fullname'>" + list[i].fullname() + "</span><br>" +
             //                "<span class='phone'>" + list[i].phone + "</span>";
-
             
         }
 		});

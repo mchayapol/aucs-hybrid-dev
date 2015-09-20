@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<head>
+<script src="js/contact.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+
+<script>
+// function restoreUI(){
+// 	var divList = document.getElementById('divList');
+//     divList.style.display = "block";
+//     var divDetails = document.getElementById('divDetails');
+//     divDetails.style.marginLeft = "420px";
+// }
+
+// $('#btnBack').click( function(){
+// 	$('#divList').css({'display' : 'block'});
+// 	$('#divDetails').css({'margin-left' : '420px'});
+
+// 	// var divList = document.getElementById('divList');
+//  //    divList.style.display = "block";
+//  //    var divDetails = document.getElementById('divDetails');
+//  //    divDetails.style.marginLeft = "420px";
+// });
+
+// var currentContact;
+
+// var c1 = new Contact('Chayapol','Moemeng','0899999999');
+// var c2 = new Contact('Bank','Eiei','0123456789');
+// var c3 = new Contact('Bas', 'uu', '0987654321');
+// c1.picture = 'http://vignette4.wikia.nocookie.net/happytreefanon/images/8/8b/Traumatized_Giggles.png/revision/latest?cb=20131225234317';
+// c2.picture = 'http://vignette4.wikia.nocookie.net/happytreefanon/images/8/8b/Traumatized_Giggles.png/revision/latest?cb=20131225234317';
+// c3.picture = 'http://vignette4.wikia.nocookie.net/happytreefanon/images/8/8b/Traumatized_Giggles.png/revision/latest?cb=20131225234317';
+
+// c1.email = "test@gmail.com"
+// c2.email = "test@gmail.com"
+// c3.email = "test@gmail.com"
+//var list = new Array(); // not recommended
+// var list = []; // create an array / list
+// list[0] = c1;
+// list[1] = c2;
+// list[2] = c3;
+
+
+var contactList;
+
+
+
+</script>
+<style>
+#divList, #divDetails, #divAdd {
+	border: 1px solid black;
+	width: 400px;
+	height: 600px;
+}
+#divList {
+	float: left;
+}
+#divDetails {
+	margin-left: 410px;
+}
+#divAdd{
+	margin-left: 830px;
+}
+.avatar{
+	border: 1px solid red;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+.fullname{
+	font: bold 20px arial;
+}
+.phone {
+    font: normal 11px arial;
+}
+</style>
+</head>
+<html>
+<body>
+	<div id="divList">
+		<button id="btnAdd"> Add </button>
+	<h1 align='center'>List</h1>
+	<table id="tablist">
+	</table>
+	<span id="spanList">
+	<span>
+	</div>
+	
+	<div id="divDetails">
+		<button id="btnBack"> Back </button>
+	<h1 align='center'>Details</h1>
+	<h1>
+		<span id="spanFullname"></span>
+	</h1>
+		phone: <span id="spanPhone" class="phone"></span><br/>
+		Email: <span id="spanEmail" class="phone"></span>
+		<span id="spanDetails">
+	</span>
+	</div>
+
+	<div id="divAdd">
+		<button id="btnBack2"> Back </button>
+		<h1 align='center'>Add</h1>
+		firstname: <input type="text" id="fn"><br/>
+		lastname: <input type="text" id="ln"><br/>
+		phone: <input type="text" id="ph"><br/>
+		email: <input type="text" id="em"><br/><br />
+		<button id="btnAddContact">Add Contact</button>
+		<span id="spanAdd">
+	</span>
+	</div>
+
+	<script>
+		$(document).ready( function(){
+			$('#divDetails').css( {'display' : 'none' } );
+			$('#divAdd').css( {'display' : 'none' } );
+
+			var contactList = 
+	[
+		{
+			"firstname": "Chayapol",
+			"lastname": "Moemeng",
+			phone: "0899999999",
+			"picture": "http://vignette4.wikia.nocookie.net/happytreefanon/images/8/8b/Traumatized_Giggles.png/revision/latest?cb=20131225234317",
+			email: "test@gmail.com"
+		},
+		{
+			"firstname": "Bank",
+			"lastname": "eiei",
+			phone: "0888888888",
+			"picture": "http://vignette4.wikia.nocookie.net/happytreefanon/images/8/8b/Traumatized_Giggles.png/revision/latest?cb=20131225234317",
+			email: "test@gmail.com"
+		},
+		{
+			"firstname": "Bas",
+			"lastname": "uu",
+			phone: "0877777777",
+			"picture": "http://vignette4.wikia.nocookie.net/happytreefanon/images/8/8b/Traumatized_Giggles.png/revision/latest?cb=20131225234317",
+			email: "test@gmail.com"
+		}
+	];
+	
+
+//localStorage.contact = JSON.stringify(contactList);
+
+var cList;
+
+    if (typeof localStorage.contact === "undefined") {
+        cList = [];
+    } else {
+    	var temp = localStorage.getItem("contact");
+        cList = JSON.parse(temp);
+    }
+    console.log(cList.length);
+			// Populate list into table
+        //var tabList = document.getElementById('tablist');
+        for (var i in cList) {
+            //var r = tabList.insertRow(tabList.rows.length);
+
+            //$('#tablist tr:last').after('<tr></tr>');
+            $('#tablist').append('<tr><td><img src="'+ cList[i].picture+'" class="avatar"></td><td><span class="fullname"> '+cList[i].firstname + ' ' + cList[i].lastname+'</span><br><span class="phone">'+cList[i].phone+'</span></td></tr>');
+
+            $('#tablist tr').click( function(){
+            	$('#divDetails').css({'display' : 'block'});
+            	$('#divList').css( {'display' : 'none' } );
+				$('#divDetails').css( {'margin-left' : '0px'} );
+
+				$('#spanFullname').html(cList[this.rowIndex].firstname + ' ' + cList[this.rowIndex].lastname);
+            	$('#spanPhone').html(cList[this.rowIndex].phone);
+            	$('#spanEmail').html(cList[this.rowIndex].email);
+            });
+
+    //         r.onclick = function () {
+
+				// // var divList = document.getElementById('divList');
+				// // divList.style.display = "none";
+				// // var divDetails = document.getElementById('divDetails');
+				// // divDetails.style.marginLeft  = "0px";
+
+				// /////
+				// $('#divList').css( {'display' : 'none' } );
+				// $('#divDetails').css( {'margin-left' : '0px'} );
+
+    //         	console.log('clicked' + this.rowIndex);
+    //         	currentContact = list[this.rowIndex];
+    //         	// document.getElementById('spanFullname').innerHTML = currentContact.fullname();
+    //         	// document.getElementById('spanPhone').innerHTML = currentContact.phone;
+    //         	// document.getElementById('spanEmail').innerHTML = currentContact.email;
+
+    //         	$('#spanFullname').html(list[this.rowIndex].fullname());
+    //         	$('#spanPhone').html(list[this.rowIndex].phone);
+    //         	$('#spanEmail').html(list[this.rowIndex].email);
+    //         };
+
+
+
+            // c0 = r.insertCell(0);
+            // c1 = r.insertCell(1);
+            // c0.innerHTML = "<img src='" + list[i].picture + "' class='avatar'>";
+            // c1.innerHTML = "<span class='fullname'>" + list[i].fullname() + "</span><br>" +
+            //                "<span class='phone'>" + list[i].phone + "</span>";
+
+            
+        }
+
+        $('#btnBack').click( function(){
+				$('#divList').css({'display' : 'block'});
+				//$('#divDetails').css({'margin-left' : '420px'});
+		});
+
+			$('#btnBack2').click( function(){
+				$('#divList').css({'display' : 'block'});
+				//$('#divDetails').css({'display' : 'block'});
+				$('#divDetails').css({'margin-left' : '420px'});
+				$('#divAdd').css({'display' : 'none'});
+			});
+
+			$('#btnAdd').click( function(){
+				$('#divList').css( {'display' : 'none' } );
+				$('#divDetails').css( {'display' : 'none' } );
+				$('#divAdd').css({'display' : 'block'});
+				$('#divAdd').css( {'margin-left' : '0px'} );
+			});
+
+			$('#btnAddContact').click( function(){
+				var temp;
+				temp = {
+					"firstname": $('#fn').val(),
+					"lastname": $('#ln').val(),
+					"phone": $('#ph').val(),
+					"picture": "http://vignette4.wikia.nocookie.net/happytreefanon/images/8/8b/Traumatized_Giggles.png/revision/latest?cb=20131225234317",
+					"email": $('#em').val()
+				};
+				console.log(temp);
+
+				var a = [];
+				a = JSON.parse(localStorage.getItem("contact"));
+				a.push(temp)
+				localStorage.setItem("contact", JSON.stringify(a));
+			});
+
+		});
+	
+	</script>
+</body>
+
+</html>
