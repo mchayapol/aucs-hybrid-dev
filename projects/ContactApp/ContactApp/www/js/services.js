@@ -29,9 +29,14 @@ angular.module('starter.services', [])
     name: 'Perry Governor',
     lastText: 'Look at my mukluks!',
     face: 'https://pbs.twimg.com/profile_images/491995398135767040/ie2Z_V6e.jpeg'
+  }, {
+      id: 5,
+      name: 'Chayapol Moemeng',
+      lastText: 'Hope it is not too confusing.',
+          face: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAORAAAAJDgzMGViZjJiLWYxNjYtNDFlYy04YzRjLTk0ZTc5YzBjNmM2ZQ.jpg'
   }];
 
-  return {
+  var obj = {
     all: function() {
       return chats;
     },
@@ -47,4 +52,6 @@ angular.module('starter.services', [])
       return null;
     }
   };
+
+  return obj;
 });

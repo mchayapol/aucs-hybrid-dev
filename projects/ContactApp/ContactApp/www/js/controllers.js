@@ -1,6 +1,9 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function ($scope) {
+    $scope.name = "Chayapol Moemeng";
+    $scope.datetime = new Date();
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();
