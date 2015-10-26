@@ -9,6 +9,12 @@ angular.module('starter.controllers', [])
 .controller('ContactsCtrl', function ($scope, Contacts) {
     $scope.contacts = Contacts.all();
 })
+.controller('ContactDetailCtrl', function ($scope, $stateParams, Contacts) {
+    var contactId = $stateParams.contactId;
+    $scope.contact = Contacts.get(contactId);
+})
+
+
 
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();

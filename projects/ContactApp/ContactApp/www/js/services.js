@@ -4,19 +4,32 @@ angular.module('starter.services', [])
 
     var contacts = [];
     contacts[contacts.length] = {
+        id: 1,
         name: 'Chayapol',
         phone: '0898998989',
         email: 'mchayapol@gmail.com',
         avatar: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAORAAAAJDgzMGViZjJiLWYxNjYtNDFlYy04YzRjLTk0ZTc5YzBjNmM2ZQ.jpg'
     };
     contacts[contacts.length] = {
+        id: 2,
         name: 'Jason',
         phone: '0818118181',
         email: 'jason@gmail.com',
         avatar: ''
     };
+
     self.all = function () {
         return contacts;
+    }
+
+    self.get = function (contactId) {
+        for (var i in contacts) {
+            var contact = contacts[i];
+            if (contact.id == contactId) {
+                return contact;
+            }
+        }
+        return;
     }
 
     return self;
