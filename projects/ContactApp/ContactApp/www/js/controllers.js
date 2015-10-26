@@ -6,8 +6,8 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('ContactsCtrl', function ($scope) {
-
+.controller('ContactsCtrl', function ($scope, Contacts) {
+    $scope.contacts = Contacts.all();
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
