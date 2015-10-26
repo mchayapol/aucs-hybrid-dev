@@ -5,6 +5,11 @@ angular.module('starter.controllers', [])
     $scope.datetime = new Date();
 })
 
+
+.controller('ContactsCtrl', function ($scope) {
+
+})
+
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {

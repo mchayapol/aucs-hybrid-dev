@@ -1,4 +1,26 @@
 angular.module('starter.services', [])
+.factory('Contacts', function () {
+    var self = this;
+
+    var contacts = [];
+    contacts[contacts.length] = {
+        name: 'Chayapol',
+        phone: '0898998989',
+        email: 'mchayapol@gmail.com',
+        avatar: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAORAAAAJDgzMGViZjJiLWYxNjYtNDFlYy04YzRjLTk0ZTc5YzBjNmM2ZQ.jpg'
+    };
+    contacts[contacts.length] = {
+        name: 'Jason',
+        phone: '0818118181',
+        email: 'jason@gmail.com',
+        avatar: ''
+    };
+    self.all = function () {
+        return contacts;
+    }
+
+    return self;
+})
 
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
