@@ -32,6 +32,10 @@ angular.module('starter.services', [])
         return;
     }
 
+    self.remove = function (contact) {
+        contacts.splice(contacts.indexOf(contacts), 1);
+    }
+
     return self;
 })
 

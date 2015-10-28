@@ -8,6 +8,10 @@ angular.module('starter.controllers', [])
 
 .controller('ContactsCtrl', function ($scope, Contacts) {
     $scope.contacts = Contacts.all();
+    $scope.remove = function (contact) {
+        // remove the given contact from your data store
+        Contacts.remove(contact);
+    }
 })
 .controller('ContactDetailCtrl', function ($scope, $stateParams, Contacts) {
     var contactId = $stateParams.contactId;

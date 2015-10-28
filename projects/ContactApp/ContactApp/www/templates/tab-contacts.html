@@ -1,22 +1,23 @@
 <ion-view view-title="Contacts">
   <ion-content>
+      <ion-list>
+          <ion-item class="item-remove-animate item-avatar item-icon-right"
+                    ng-repeat="contact in contacts"
+                    type="item-text-wrap"
+                    href="#/tab/contacts/{{contact.id}}">
+              <img ng-src="{{contact.avatar}}">
+              <h2>{{contact.name}}</h2>
+              <p>
+                  {{contact.phone}}<br />
+                  {{contact.email}}
+              </p>
 
-      <ion-item class="item-remove-animate item-avatar item-icon-right"
-                ng-repeat="contact in contacts"
-                type="item-text-wrap"
-                href="#/tab/contacts/{{contact.id}}">
-          <img ng-src="{{contact.avatar}}">
-          <h2>{{contact.name}}</h2>
-          <p>
-              {{contact.phone}}<br />
-              {{contact.email}}
-          </p>
-          <i class="icon ion-chevron-right icon-accessory"></i>
-
-          <ion-option-button class="button-assertive" ng-click="remove(chat)">
-              Delete
-          </ion-option-button>
-      </ion-item>
+              <i class="icon ion-chevron-right icon-accessory"></i>
+              <ion-option-button class="button-assertive"
+                                 ng-click="remove(contact)">
+                  Delete
+              </ion-option-button>
+          </ion-item>
       </ion-list>
 
 
