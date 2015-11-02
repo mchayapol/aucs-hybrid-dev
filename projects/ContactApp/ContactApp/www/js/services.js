@@ -32,6 +32,10 @@ angular.module('starter.services', [])
         return;
     }
 
+    self.add = function (contactObj) {
+        contacts[contacts.length] = contactObj;
+    }
+
     self.remove = function (contact) {
         contacts.splice(contacts.indexOf(contacts), 1);
     }

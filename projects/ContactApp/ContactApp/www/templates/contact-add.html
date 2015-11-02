@@ -1,0 +1,26 @@
+<ion-view view-title="New Contact">
+
+  <ion-content class="padding">
+          <input type="text"
+                 ng-model="contact.name"
+                 placeholder="Name" />
+
+          <input type="text"
+                 ng-model="contact.phone"
+                 placeholder="Phone" />
+          <input type="text"
+                 ng-model="contact.email"
+                 placeholder="Email" />
+
+          <div class="button-bar">
+              <button class="button button-balanced"
+                      ng-click="add()">
+                  Add
+              </button>
+              <button class="button"
+                      ng-click="goBack()">
+                  Cancel
+              </button>
+          </div>
+  </ion-content>
+</ion-view>

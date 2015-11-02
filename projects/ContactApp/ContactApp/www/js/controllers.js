@@ -6,11 +6,14 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('ContactsCtrl', function ($scope, Contacts) {
+.controller('ContactsCtrl', function ($scope, $location, Contacts) {
     $scope.contacts = Contacts.all();
     $scope.remove = function (contact) {
         // remove the given contact from your data store
         Contacts.remove(contact);
+    }
+    $scope.navToAddPage = function () {
+        $location.path("/tab/contact-add");
     }
 })
 .controller('ContactDetailCtrl', function ($scope, $stateParams, Contacts) {
@@ -18,7 +21,23 @@ angular.module('starter.controllers', [])
     $scope.contact = Contacts.get(contactId);
 })
 
+.controller('ContactAddCtrl', function ($scope, $location, Contacts) {
+    
+    $scope.contact = {
+        name: '',
+        phone: '',
+        email: ''
+    }
 
+    $scope.goBack = function () {
+        $location.path("/tab/contacts");
+    }
+
+    $scope.add = function () {
+        Contacts.add($scope.contact);
+        $scope.goBack();
+    }
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();
