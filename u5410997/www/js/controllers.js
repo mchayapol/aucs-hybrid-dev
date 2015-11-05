@@ -14,8 +14,10 @@ angular.module('starter.controllers', [])
 
   $scope.edit = function () {
     $scope.contact = Contacts.get($stateParams.contactId);
+    console.log($scope.contact);
   }
 })
+
 
 .controller('ContactAddCtrl', function ($scope, $location, Contacts) {
    $scope.contact = {
@@ -58,8 +60,13 @@ angular.module('starter.controllers', [])
    }
 })
 
-.controller('ContactUpdateCtrl', function ($scope, $stateParams, Contacts) {
+.controller('ContactUpdateCtrl', function ($scope, $stateParams, Contacts, $location) {
     $scope.contact = Contacts.get($stateParams.contactId);
+    console.log($scope.contact);
+    Contacts.update($stateParams.contactId, $scope.contact);
+    $scope.update = function(){
+      $location.path("/tab/contacts");
+    }
 })
 
 .controller('AccountCtrl', function($scope) {
