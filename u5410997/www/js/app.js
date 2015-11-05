@@ -68,6 +68,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+    .state('tab.contact-update', {
+      url: '/update_contact/:contactId',
+      views: {
+          'tab-contacts': {
+            templateUrl: 'templates/contact-update.html',
+            controller: 'ContactUpdateCtrl'
+          }
+      }
+    })
     .state('tab.contact-add', {
        url: '/contacts-add',
        views: {
@@ -77,34 +86,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
            }
         }
       })
-     .state('tab.contact-update', {
-       url: '/contacts-update',
-       view: {
-           'tab-contacts': {
-             templatesUrl: 'templates/contact-update.html',
-             controller: 'ContactUpdateCtrl'
-           }
-       }
-     })
-
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
 
   .state('tab.account', {
     url: '/account',

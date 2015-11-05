@@ -5,38 +5,47 @@
   The Friends service returns an array of friend data
 -->
 <ion-view view-title="Create New Contact">
-  <!-- <ion-nav-buttons side="left">
-    <button class="ion-ios-arrow-back button button-clear button-calm" ng-click="goBack()"> Back
-    </button>
-  </ion-nav-buttons> -->
   <ion-nav-buttons side="right">
     <button class="ion-android-done button button-clear button-calm" ng-click="add()">
     </button>
   </ion-nav-buttons>
   <ion-content class="padding">
-    <p>
-      <input required
-             type="text"
-             ng-model="contact.name"
-             placeholder="Name">
-      <input required
-             type="tel"
-             ng-model="contact.phone"
-             placeholder="Phone">
-      <input required
-             type="email"
-             ng-model="contact.email"
-             placeholder="E-mail@email.com">
-      <input type="file"
-             accept="image/*"
-             ng-model="contact.avatar">
-    </p>
-    <!-- <div class="button-bar">
-      <a class="button button-block button-balanced"
-         ng-click="add()">Add</a>
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label" style="width:100px;">Name</span>
+        <input required
+               type="text"
+               ng-model="contact.name">
+      </label>
+      <label class="item item-input">
+        <span class="input-label" style="width:100px;">Phone</span>
+        <input required
+               type="tel"
+               ng-model="contact.phone">
+      </label>
+      <label class="item item-input">
+        <span class="input-label" style="width:100px;">E-mail</span>
+        <input required
+               type="email"
+               ng-model="contact.email"
+               placeholder="email@mail.com">
+      </label>
+      <label class="item item-input">
+        <span class="input-label" style="width:100px;">Img url</span>
+        <input type="text"
+               ng-model="contact.avatar">
+        <!-- <input type="file"
+               accept="image/*"
+               ng-model="contact.avatar"> -->
+      </label>
+    </div>
+
+    <div class="button-bar">
       <a class="button button-block button-light"
          ng-click="goBack()">Cancel</a>
-    </div> -->
+      <a class="button button-block button-balanced"
+         ng-click="add()">Add</a>
+    </div>
 
   </ion-content>
 </ion-view>
