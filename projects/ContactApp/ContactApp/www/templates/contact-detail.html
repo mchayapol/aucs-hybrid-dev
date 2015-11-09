@@ -1,4 +1,9 @@
 <ion-view view-title="{{contact.name}}">
+    <ion-nav-buttons side="right">
+        <button class="button button-balanced ion-edit"
+                ng-click="editPerson()"></button>
+    </ion-nav-buttons>
+
   <ion-content class="padding">
     <img ng-src="{{contact.avatar}}" style="width: 64px; height: 64px">
     <p>

@@ -1,8 +1,11 @@
 angular.module('starter.services', [])
-.factory('Contacts', function () {
+.factory('Contacts', function ($window) {
     var self = this;
 
-    var contacts = [];
+    var contacts = angular.fromJson($window.localStorage["contacts"]);
+    if (contacts == undefined)
+        contacts = [];
+    /*
     contacts[contacts.length] = {
         id: 1,
         name: 'Chayapol',
@@ -17,6 +20,7 @@ angular.module('starter.services', [])
         email: 'jason@gmail.com',
         avatar: ''
     };
+    */
 
     self.all = function () {
         return contacts;
@@ -33,11 +37,31 @@ angular.module('starter.services', [])
     }
 
     self.add = function (contactObj) {
+        console.log(contacts);
+        contactObj['id'] = contacts.length;
         contacts[contacts.length] = contactObj;
+        $window.localStorage['contacts'] = angular.toJson(contacts);
     }
 
     self.remove = function (contact) {
-        contacts.splice(contacts.indexOf(contacts), 1);
+        // find the index of the contact
+        for (var i in contacts) {
+            var contact = contacts[i];
+            if (contact.id == contactId) {
+                contacts.splice(i, 1);
+                $window.localStorage['contacts'] = angular.toJson(contacts);
+            }
+        }
+    }
+
+    self.update = function (updatedContact) {
+        for (var i in contacts) {
+            var contact = contacts[i];
+            if (contact.id == updatedContact.id) {
+                contacts[i] = updatedContact;
+                $window.localStorage['contacts'] = angular.toJson(contacts);
+            }
+        }
     }
 
     return self;

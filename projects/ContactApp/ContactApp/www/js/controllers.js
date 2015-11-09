@@ -16,10 +16,31 @@ angular.module('starter.controllers', [])
         $location.path("/tab/contact-add");
     }
 })
-.controller('ContactDetailCtrl', function ($scope, $stateParams, Contacts) {
+.controller('ContactDetailCtrl', function ($scope, $stateParams, Contacts, $location) {
     var contactId = $stateParams.contactId;
+
     $scope.contact = Contacts.get(contactId);
+
+    $scope.editPerson = function () {
+        $location.path("/tab/contact-edit/" + contactId);
+    }
 })
+
+.controller('ContactEditCtrl', function ($scope, $stateParams, $location, Contacts) {
+    var contactId = $stateParams.contactId;
+
+    $scope.contact = Contacts.get(contactId);
+
+    $scope.goBack = function () {
+        $location.path("/tab/contacts");
+    }
+
+    $scope.update = function () {
+        Contacts.update($scope.contact);
+        $scope.goBack();
+    }
+})
+
 
 .controller('ContactAddCtrl', function ($scope, $location, Contacts) {
     
