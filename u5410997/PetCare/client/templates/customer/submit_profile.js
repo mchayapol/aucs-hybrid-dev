@@ -3,12 +3,36 @@
 */
 
 Template.SubmitProfile.helpers({
-
-    "userName": function() { return Session.get('customer').userName;},
-    "birthDay": function() { return Session.get('customer').profile.birthDay;},
-    "id"      : function() { return Session.get('customer').profile.id;},
-    "email"   : function() { return Session.get('customer').profile.email;},
-    "address" : function() { return Session.get('customer').profile.address;},
+    "userName": function() {
+      var customer = Session.get("customer");
+      if(customer) {
+        return customer.userName;
+      }
+    },
+    "birthDay": function() {
+      var customer = Session.get('customer');
+      if (customer && customer.profile) {
+        return customer.profile.birthDay;
+      }
+    },
+    "id"      : function() {
+      var customer = Session.get('customer');
+      if (customer && customer.profile) {
+        return customer.profile.id;
+      }
+    },
+    "email"   : function() {
+      var customer = Session.get('customer');
+      if (customer && customer.profile) {
+        return customer.profile.email;
+      }
+    },
+    "address" : function() {
+      var customer = Session.get('customer');
+      if (customer && customer.profile) {
+        return customer.profile.address;
+      }
+    },
     "isUpdate": function() {
         var customer = Session.get("customer");
         if(customer) {
@@ -25,20 +49,28 @@ Template.SubmitProfile.events({
         if (customer === undefined) {
             customer = {};
         }
-        customer.profile = {
-            name    : $(e.target).find('[name=userName]').val(),
-            birthDay: $(e.target).find('[name=birthDay]').val(),
-            id      : $(e.target).find('[name=id]').val(),
-            email   : $(e.target).find('[name=email]').val(),
-            address : $(e.target).find('[name=address]').val()
-        };
 
-        if ($(e.target).prop("submit").value == "create") {
+        if ($(e.target).prop("submit").value == "Create") {
             e.preventDefault();
+            customer.profile = {
+                name    : $(e.target).find('[name=userName]').val(),
+                birthDay: $(e.target).find('[name=birthDay]').val(),
+                id      : $(e.target).find('[name=id]').val(),
+                email   : $(e.target).find('[name=email]').val(),
+                address : $(e.target).find('[name=address]').val()
+            };
             Session.set("customer", customer);
             Router.go('/registerProfileCont');
         }
-        else if ($(e.target).prop("submit").value == "save") {
+        else if ($(e.target).prop("submit").value == "Save") {
+          e.preventDefault();
+          customer.profile = {
+              name    : $(e.target).find('[name=userName]').val(),
+              birthDay: $(e.target).find('[name=birthDay]').val(),
+              id      : $(e.target).find('[name=id]').val(),
+              email   : $(e.target).find('[name=email]').val(),
+              address : $(e.target).find('[name=address]').val()
+          };
             if(customer) {
                 if(customer._id) {
                     var update_id = customer._id;
