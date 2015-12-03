@@ -1,0 +1,67 @@
+<template name="SubmitProfile">
+    <form class="main form page">
+        <div class="row m-top-40 m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "name" }}<i class="required">*</i></span>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center">
+                <input required name="userName" type="text" class="input-control" placeholder="" value="{{userName}}">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "birthday" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <input name="birthDay" type="date" class="input-control" placeholder="" max="2015-12-31" min="1895-1-1" value="{{birthDay}}">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "id" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <input name="id" type="number" class="input-control" placeholder="0000000000000" value="{{id}}">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "email" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center">
+                <input name="email" type="email" class="input-control" placeholder="" value="{{email}}">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "address" }}<i class="required">*</i></span>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center">
+                <textarea required name="address" type="text" class="input-control" style="height:100px;">{{address}}</textarea>
+            </div>
+        </div>
+        <!-- <hr class="m-bottom-30"> -->
+        <div class="row m-bottom-30 text-center">
+            {{#if isUpdate}}
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <a href="/" class="btn-blue width-85">{{_ "back" }}</a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <a href="/delete" id="delete" class="btn-red width-85">
+                    <i class="fa fa-remove"></i>{{_ "delete" }}
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <input type="submit" id="submit" class="btn-org width-85" value='{{_ "save" }}'>
+            </div>
+            {{else}}
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <a href="/" class="btn-blue width-85">{{_ "back" }}</a>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <input type="submit" id="submit" class="btn-org width-85" value='{{_ "create" }}'>
+            </div>
+            {{/if}}
+        </div>
+    </form>
+</template>
