@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<head>
+    <title>Contacts</title>
+<script src="js/contact.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+
+<script>
+
+    function restoreUI() {
+        var divList = document.getElementById('divList');
+        divList.style.display = "block";
+        var divDetails = document.getElementById('divDetails');
+        divDetails.style.marginLeft = "420px";
+    }
+
+    var currentContact;
+	
+
+		var list;  // create an array / list
+		
+		localStorage.clear();
+		
+		console.log(localStorage.contactList);
+		
+		if (typeof localStorage.contactList === "undefined"){
+			list = [];
+		} else {
+			list = JSON.parse(localStorage.contactList);
+		}
+		
+        var contactA = {
+            "firstname": "Anna",
+            "lastname": "Smith",
+            email: "anna@scitech.au.edu",
+            phone: "088888888",
+            picture: "avatar.png"
+        };
+		
+		var contactB = {
+			"firstname": "David",
+			"lastname": "Sageus",
+			email: "itharion@parhesius.com",
+			phone: "0839108899",
+			picture: "avatar.png"
+		}
+		
+		
+		var tempContact = contactA;
+		console.log(tempContact);
+		
+		list[list.length] = contactA;
+		list[list.length] = contactB;
+		
+		localStorage.contactList = JSON.stringify(list);
+		
+		var listHTML;
+		
+		for (var c in list) {
+			console.log('c')
+		}
+		
+		localStorage.setItem("contact", JSON.stringify(contactA));
+		
+
+
+        $(document).ready(function () {
+            // Populate list into table
+            console.log(list.length);
+
+            for (var i in list) {
+                // refer to the new row recently created
+				console.log( 'l = '+JSON.stringify( list[i] ));
+                $('#tabList tr:last')
+                    .after("<tr><td><img src='" + list[i].picture + "' class='avatar'></td>" +
+                           "<td><span class='fullname'>" + list[i].firstname + '  ' + list[i].lastname + "</span><br>" +
+                           "<span class='phone'>" + list[i].phone + "</span></td></tr>");
+                $('#tabList tr:last').click(function () {
+                    $('#divList').css(
+                        { 'display' : 'none' }
+                    );
+                    $('#divDetails').css({ 'margin-left' : '0px'});
+
+                    console.log('clicked ' + this.rowIndex);
+                    currentContact = list[this.rowIndex - 1];
+                    $('#imgAvatar').attr('src', list[this.rowIndex - 1].picture);
+                    $('#spanFullname').html(list[this.rowIndex - 1].firstname + "  "+ list[this.rowIndex - 1].lastname);
+                    $('#spanPhone').html(list[this.rowIndex - 1].phone);
+                    $('#spanEmail').html(list[this.rowIndex - 1].email);
+                });
+
+            }
+
+        });
+
+
+    </script>
+<style>
+#divList, #divDetails {
+	border: 1px solid black;
+	width: 400px;
+	height: 600px;
+}
+
+#divList {
+	float: left;
+}
+
+#divDetails {
+	margin-left: 410px;
+    z-index: 999;
+}
+
+    .avatar {
+        border: 1px solid red;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+
+    .fullname {
+        font: bold 24px arial;
+    }
+
+    .phone {
+        font: normal 18px arial;
+    }
+</style>
+</head>
+<html>
+<body>
+    <div id="divList">
+        <h1>Contact Details</h1>
+        <table id="tabList">
+            <tr><td></td><td></td></tr>
+        </table>
+        <span id="spanList">
+
+        </span>
+    </div>
+
+    <div id="divDetails">
+        <button onclick="restoreUI()" id="btnBack"><img width="32px" src="back.jpg" /></button>
+        <h1><span id="spanFullname"></span></h1>
+        <img id="imgAvatar" /><br />
+        Phone: <span id="spanPhone"></span><br />
+        Email: <span id="spanEmail"></span>
+        <span id="spanDetails">
+        </span>
+    </div>
+
+</body>
+
+</html>
