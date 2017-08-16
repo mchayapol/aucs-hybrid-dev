@@ -1,0 +1,135 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>calculator</title>
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+
+<body>
+  <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <div class="container">
+    <table>
+      <tr>
+        <input type="number" id="digits" value="1024.86">
+      </tr>
+      <tr>
+        <td>
+          <button id="btnClear" class="btnCalc">C</button>
+        </td>
+        <td>
+          <button id="btnSign" class="btnCalc">&PlusMinus;</button>
+        </td>
+        <td>
+          <button id="btnPercent" class="btnCalc">%</button>
+        </td>
+        <td>
+          <button id="btnOprDivide" class="btnOpr">&divide;</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button id="btn7" class="btnCalc" onclick="btn_click(7)">7</button>
+        </td>
+        <td>
+          <button id="btn8" class="btnCalc">8</button>
+        </td>
+        <td>
+          <button id="btn9" class="btnCalc">9</button>
+        </td>
+        <td>
+          <button id="btnOprMultiply" class="btnOpr">&times;</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button id="btn4" class="btnCalc">4</button>
+        </td>
+        <td>
+          <button id="btn5" class="btnCalc">5</button>
+        </td>
+        <td>
+          <button id="btn6" class="btnCalc">6</button>
+        </td>
+        <td>
+          <button id="btnOprSubtract" class="btnOpr">-</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button id="btn1" class="btnCalc">1</button>
+        </td>
+        <td>
+          <button id="btn2" class="btnCalc">2</button>
+        </td>
+        <td>
+          <button id="btn3" class="btnCalc">3</button>
+        </td>
+        <td>
+          <button id="btnOprAdd" class="btnOpr">+</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button id="btn0" class="btnCalc">0</button>
+        </td>
+        <td>
+          <button id="btnDot" class="btnCalc">.</button>
+        </td>
+        <td>
+          <button id="btnOprEqual" class="btnOpr">=</button>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/plugins.js -->
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>
