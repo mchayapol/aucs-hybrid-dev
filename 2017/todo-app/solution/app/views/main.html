@@ -1,0 +1,20 @@
+<div class="container">
+
+  <ul>
+    <li ng-repeat="task in taskList">
+      <input type="checkbox" ng-model="task.isCompleted">
+      <span ng-bind="task.title" ng-class="{done: task.isCompleted}"></span>
+      <a ng-click="deleteTask(task)">
+        <span class="glyphicon glyphicon-trash pull-right"></span>
+      </a>
+      </span>
+    </li>
+  </ul>
+</div>
+
+<div class="footer">
+  <input type="text" ng-model="taskTitle">
+  <button class="btn btn-sm" ng-click="addTask(taskTitle)">
+          <span class="glyphicon glyphicon-plus pull-left"></span>      
+  </button>
+</div>
