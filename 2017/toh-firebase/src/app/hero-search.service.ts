@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+// import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -10,9 +10,11 @@ import { Hero } from './hero';
 
 @Injectable()
 export class HeroSearchService {
-  constructor(private http: Http) { }
+  constructor() { }
 
   search(term: string): Observable<Hero[]> {
+    return null;
+    /*
     return this.http
       .get(`app/heroes/?name=${term}`)
       .map((r: Response) => r.json().data as Hero[])
@@ -20,5 +22,6 @@ export class HeroSearchService {
           console.error('An friendly error occurred', error);
           return Observable.throw(error.message || error);
       });
+      */
   }
 }
