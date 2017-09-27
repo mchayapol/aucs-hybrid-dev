@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{title}}
+  </h1>
+</div>
+<div>
+  <div>{{ (user | async)?.uid }} </div>
+  <button (click)="login()">Login</button>
+  <button (click)="logout()">Logout</button>
+</div>
+<ul>
+  <li class="text" *ngFor="let todo of todoList | async">
+    {{todo.$value}}
+  </li>
+</ul>
