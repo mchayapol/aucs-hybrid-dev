@@ -1,0 +1,24 @@
+<template name="layout">
+    <div class="fullwidth-container">
+        <header class="navbar navbar-default nav-light" role="navigation">
+            <div class="navbar-header toggle-switch">
+                <span class="toggle-lang">TH</span>
+                <input type="checkbox" class="lang-switch" checked/>
+                <span class="toggle-lang">EN</span>
+            </div>
+        </header>
+        <div class="container">
+            <div id="cah">
+                {{> yield}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="regLayout">
+    <div class="fullwidth-container">
+        <div id="cah">
+            {{> yield}}
+        </div>
+    </div>
+</template>
