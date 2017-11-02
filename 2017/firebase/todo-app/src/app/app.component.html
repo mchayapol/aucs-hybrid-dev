@@ -11,6 +11,6 @@
 </div>
 <ul>
   <li class="text" *ngFor="let todo of todoList | async">
-    {{todo.$value}}
+    {{todo | json }}
   </li>
 </ul>
