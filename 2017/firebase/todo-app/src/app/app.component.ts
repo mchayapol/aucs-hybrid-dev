@@ -24,7 +24,7 @@ export class AppComponent {
   }
 
   login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then(_ => { console.log(this.user) });
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(_ => { console.log(this.user) });
   }
 
   logout() {
