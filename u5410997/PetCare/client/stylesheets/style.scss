@@ -1,0 +1,14 @@
+/* iPad [Portrait + landscape] */
+@media only screen and (min-device-width: 768px) and (max-device-width:1024px) {
+    .selector-01 {margin: 10px;}
+    .selector-02 {margin: 10px;}
+    .selector-03 {margin: 10px;}
+}
+
+.container-cover {
+    text-align:center;
+    vertical-align: middle;
+}
+.cover-logo {
+    text-align: center;
+}

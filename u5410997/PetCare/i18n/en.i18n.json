@@ -1,0 +1,58 @@
+{
+  "check_name"          : "Please fill in your name here..",
+  "register"            : "Create New Account",
+  "customer_information": "User Information",
+  "thank_you"           : "Thank you !",
+
+// ====================== Home ======================
+  "your_name"       : "Your name",
+  "your_email"      : "Your email",
+  "password"        : "Password",
+  "confirm_password": "Confirm Password",
+
+//  ====================== Owner Profile ======================
+  "name"            : "Name",
+  "birthday"        : "Date of Birth",
+  "id"              : "Personal Id",
+  "address"         : "Address",
+  "phone_number"    : "Phone Number",
+  "mobile_number"   : "Mobile Number",
+  "other_number"    : "Other Number",
+  "emergency_number": "Emergency Number",
+  "email"           : "E-mail",
+  "line_id"         : "Line ID",
+  "facebook"        : "Update Profile",
+
+//  ====================== Pet Profile ======================
+  "pet_type"        : "Pet Types",
+  "dog"             : "Dog",
+  "cat"             : "Cat",
+  "other"           : "Other",
+  "how_old"         : "How old is your pet?",
+  "month"           : "Month",
+  "year"            : "Year",
+  "gender"          : "Gender",
+  "male"            : "Male",
+  "female"          : "Female",
+  "spay_or_neuterd" : "Spayed or neuterd",
+  "spay"            : "Spay",
+  "neuterd"         : "Neuterd",
+
+//  ====================== Pet Profile ======================
+  "pet_info"  : "Pet Information",
+  "pet_name"  : "Pet Name",
+  "micro_id"  : "Microchip  ID",
+  "type"      : "Types",
+  "breed"     : "Breed",
+  "more_info" : "Additional Information",
+
+//  ====================== Button ======================
+  "submit"  : "Submit",
+  "save"    : "Save",
+  "delete"  : " Delete",
+  "create"  : "Create",
+  "back"    : "Back",
+  "next"    : "Next",
+  "done"    : "Done"
+
+}

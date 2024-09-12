@@ -1,0 +1,55 @@
+<template name="SubmitProfileCont">
+    <form class="main form page" style="padding:30px;">
+        <div class="row m-top-40 m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "phone_number" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center">
+                <input name="tel1" type="tel" class="input-control" placeholder="" size="10">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                    <span class="input-group-addon no-border gray-h">{{_ "mobile_number" }}<i
+                            class="required">*</i></span>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center">
+                <input required name="tel2" type="tel" class="input-control" placeholder="" size="10" value="000">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "other_number" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center">
+                <input name="tel3" type="tel" class="input-control" placeholder="" size="10">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "emergency_number" }}<i
+                        class="required">*</i></span>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center">
+                <input required name="tel4" type="tel" class="input-control" placeholder="" size="10" value="000">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "line_id" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center m-bottom-30">
+                <input name="lineId" type="text" class="input-control" placeholder="">
+            </div>
+        </div>
+        <!-- <hr class="m-bottom-30"> -->
+        <div class="row m-bottom-30 text-center">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <a href="/registerProfile" class="btn-blue width-85">{{_ "back" }}</a>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <input type="submit" class="btn-org width-85" value="{{_ "next" }}">
+            </div>
+        </div>
+    </form>
+</template>

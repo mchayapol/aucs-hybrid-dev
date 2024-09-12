@@ -1,0 +1,237 @@
+<template name="SubmitDog">
+    <form class="main form page">
+        <div class="row m-top-20 m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "pet_name" }}<i class="required">*</i></span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <input required name="petName" type="text" class="input-control" placeholder="">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "how_old" }}</span>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="col-md-3 col-sm-3">
+                <span class="input-group-addon no-border gray-h">{{_ "month" }}</span>
+              </div>
+              <div class="col-md-9 col-sm-9">
+                <input name="petMonth" type="number" min="0" max="11" style="width:50%; margin-top:15px; padding: 0 5px;">
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="col-md-3 col-sm-3">
+                <span class="input-group-addon no-border gray-h">{{_ "year" }}</span>
+              </div>
+              <div class="col-md-9 col-sm-9">
+                <input name="petYear" type="number" min="0" max="20" style="width:50%; margin-top:15px; padding: 0 5px;">
+              </div>
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "micro_id" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <input name="microchipId" type="number" class="input-control" placeholder="0000">
+            </div>
+        </div>
+        <input readonly name="type" type="hidden" class="input-control" value="{{_ "dog" }}">
+        <div class="row m-bottom-20">
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-12">
+                <span class="input-group-addon no-border gray-h" style="padding-left: 11px !important;">{{_ "gender" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <select id="gender">
+                <option value="Male" selected>{{_ "male" }}</option>
+                <option value="Female">{{_ "female" }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-12">
+                <span class="input-group-addon no-border gray-h" style="padding-left: 3px !important;">{{_ "spay_or_neuterd" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <select id="spayOrNeuterd">
+                <option value="spay" selected>{{_ "spay" }}</option>
+                <option value="neuterd">{{_ "Neuterd" }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "more_info" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <textarea name="moreInfo" type="text" class="input-control" style="height:100px;"></textarea>
+            </div>
+        </div>
+        <div class="row m-top-30 m-bottom-30 text-center">
+            <div class="col-md-6 col-sm-12 no-padding">
+                <a href="/registerPetsSpecies" class="btn-blue width-85">{{_ "back" }}</a>
+            </div>
+            <div class="col-md-6 col-sm-12 no-padding">
+                <input type="submit" class="btn-org width-85" value='{{_ "done" }}'>
+            </div>
+        </div>
+    </form>
+</template>
+
+
+<template name="SubmitCat">
+    <form class="main form page">
+        <div class="row m-top-40 m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "pet_name" }}<i class="required">*</i></span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <input required name="petName" type="text" class="input-control" placeholder="">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "how_old" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <span class="input-group-addon no-border width-25 gray-h">{{_ "month" }}</span>
+                <input name="petMonth" type="number" min="1" max="11" class="width-25">
+                <span class="input-group-addon no-border width-25 gray-h">{{_ "year" }}</span>
+                <input name="petYear" type="number" min="0" max="20" class="width-25">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "micro_id" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <input name="microchipId" type="number" class="input-control" placeholder="0000" >
+            </div>
+        </div>
+        <input readonly name="type" type="hidden" class="input-control" value="{{_ "cat" }}">
+        <div class="row m-bottom-20">
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-12">
+                <span class="input-group-addon no-border gray-h" style="padding-left: 11px !important;">{{_ "gender" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <select id="gender">
+                <option value="Male" selected>{{_ "male" }}</option>
+                <option value="Female">{{_ "female" }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-12">
+                <span class="input-group-addon no-border gray-h" style="padding-left: 3px !important;">{{_ "spay_or_neuterd" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <select id="spayOrNeuterd">
+                <option value="spay" selected>{{_ "spay" }}</option>
+                <option value="neuterd">{{_ "Neuterd" }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "more_info" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <textarea name="moreInfo" type="text" class="input-control" style="height:100px;"></textarea>
+            </div>
+        </div>
+        <div class="row m-top-40 m-bottom-30 text-center">
+            <div class="col-md-6 col-sm-12 no-padding">
+                <a href="/registerPetsSpecies" class="btn-blue width-85">{{_ "back" }}</a>
+            </div>
+            <div class="col-md-6 col-sm-12 no-padding">
+                <input type="submit" class="btn-org width-85" value='{{_ "done" }}'>
+            </div>
+        </div>
+    </form>
+</template>
+
+
+<template name="SubmitOthers">
+    <form class="main form page">
+        <div class="row m-top-20 m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "pet_name" }}<i class="required">*</i></span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <input required name="petName" type="text" class="input-control" placeholder="">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "how_old" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <span class="input-group-addon no-border width-25 gray-h">{{_ "month" }}</span>
+              <input name="petMonth" type="number" min="1" max="11" class="width-25">
+              <span class="input-group-addon no-border width-25 gray-h">{{_ "year" }}</span>
+              <input name="petYear" type="number" min="0" max="20" class="width-25">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "micro_id" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <input name="microchipId" type="number" class="input-control" placeholder="0000">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "type" }}<i class="required">*</i></span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <input type="text" name="type" class="input-control">
+            </div>
+        </div>
+        <div class="row m-bottom-20">
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-12">
+                <span class="input-group-addon no-border gray-h" style="padding-left: 11px !important;">{{_ "gender" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <select id="gender">
+                <option value="Male" selected>{{_ "male" }}</option>
+                <option value="Female">{{_ "female" }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-12">
+                <span class="input-group-addon no-border gray-h" style="padding-left: 3px !important;">{{_ "spay_or_neuterd" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <select id="spayOrNeuterd">
+                <option value="spay" selected>{{_ "spay" }}</option>
+                <option value="neuterd">{{_ "Neuterd" }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row m-bottom-20">
+            <div class="col-md-4 col-sm-12">
+                <span class="input-group-addon no-border gray-h">{{_ "more_info" }}</span>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <textarea name="moreInfo" type="text" class="input-control" style="height:100px;"></textarea>
+            </div>
+        </div>
+        <div class="row m-top-30 m-bottom-30 text-center">
+            <div class="col-md-6 col-sm-12 no-padding">
+                <a href="/registerPetsSpecies" class="btn-blue width-85">{{_ "back" }}</a>
+            </div>
+            <div class="col-md-6 col-sm-12 no-padding">
+                <input type="submit" class="btn-org width-85" value='{{_ "done" }}'>
+            </div>
+        </div>
+    </form>
+</template>
